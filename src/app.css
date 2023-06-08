@@ -11,3 +11,13 @@ html, body {
   grid-template-rows: repeat(10, minmax(0, 1fr));
   grid-template-columns: repeat(10, minmax(0, 1fr));
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+}
