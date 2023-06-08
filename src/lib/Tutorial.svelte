@@ -1,0 +1,1 @@
+<h1 class="font-title">Griddle: How to play</h1>

@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body {
+  @apply h-full overflow-hidden;
+}
+
+.board {
+  grid-template-rows: repeat(10, minmax(0, 1fr));
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}

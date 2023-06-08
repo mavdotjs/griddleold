@@ -3,10 +3,11 @@ type GridNum = {
     sort?: number,
 }
 
-type Game = {
+export type Game = {
     guessesLeft: number,
     grid: GridNum[],
     answer: number,
+    tolerance: number
 }
 
 function baseGrid(answer: number): GridNum[] {
@@ -16,28 +17,31 @@ function baseGrid(answer: number): GridNum[] {
     ]
 }
 
-function shuffle(grid: GridNum[]): GridNum[] {
+export function shuffle(grid: GridNum[]): GridNum[] {
     return grid.map(value => ({ ...value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(value => ({ ...value, sort:undefined }))
 }
 
 function createGame(): Game {
-    const answer = Math.floor(Math.random() * 100)
+    const answer = random(75, 25)
     const grid = shuffle(fillGrid(baseGrid(answer), answer));
 
     return {
         guessesLeft: 3,
         grid,
-        answer
+        answer,
+        tolerance: 1,
     }
 }
 
 function fillGrid(base: GridNum[], answer: number) {
     for(const _ of new Array(100 - base.length).map((_,i) => i)) {
         const index = base.length
-        base[index] = { value: random(100, 1) }
+        let value;
+        value = { value: random(100, 1) }
         do {
-            base[index] = { value: random(100, 1) }
-        } while(base[index].value === answer)
+            value = { value: random(100, 1) }
+        } while(value.value === answer)
+        base[index] = value
     }
     return base
 }

@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,svelte}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'title': ['"Bagel Fat One", system-ui, sans-serif']
+      }
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
