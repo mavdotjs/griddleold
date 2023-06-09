@@ -7,7 +7,9 @@ export type Game = {
     guessesLeft: number,
     grid: GridNum[],
     answer: number,
-    tolerance: number
+    tolerance: number,
+    modal: boolean,
+    isCorrect: boolean,
 }
 
 function baseGrid(answer: number): GridNum[] {
@@ -30,6 +32,8 @@ function createGame(): Game {
         grid,
         answer,
         tolerance: 1,
+        modal: false,
+        isCorrect: false
     }
 }
 

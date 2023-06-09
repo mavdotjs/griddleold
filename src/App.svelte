@@ -2,8 +2,8 @@
   import { writable } from 'svelte/store';
 	import Game from './lib/Game.svelte';
   import Grid from './lib/Grid.svelte';
-  import Input from './lib/Input.svelte';
   import TopBar from './lib/TopBar.svelte';
+  import Modal from './lib/Modal.svelte';
   const tutorial = writable<boolean>(false)
 </script>
 
@@ -12,6 +12,7 @@
   <TopBar />
   <Grid />
 </Game>
+<Modal />
 
 {#if $tutorial}
    <!-- content here -->

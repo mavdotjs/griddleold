@@ -3,9 +3,12 @@ import { setContext, getContext } from 'svelte';
 import { createGame, type Game } from './game';
 
 const contextKey = Symbol('game');
-const gameStore: Writable<Game> = writable(createGame())
+export const gameStore: Writable<Game> = writable(createGame())
+export function reset() {
+    gameStore.set(createGame())
+}
 export function create() {
-    setContext(contextKey, gameStore);
+    return setContext(contextKey, gameStore);
 } 
 export default function get(): Writable<Game> {
     return getContext(contextKey)
